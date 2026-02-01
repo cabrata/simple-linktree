@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": "webpack serve --mode development --open",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production --stats-error-details",
     "watch": "webpack --watch --mode development"
   },
   "keywords": [
