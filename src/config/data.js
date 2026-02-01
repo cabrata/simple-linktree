@@ -65,6 +65,18 @@ module.exports = {
       title: "Connect with Me",
       links: [
         {
+          title: "WhatsApp Group",
+          subtitle: "Join for Group Renegade Immortal Game",
+          icon: "fab fa-whatsapp",
+          url: "https://chat.whatsapp.com/L22XWohPnsBCkmitbTL7Dd?mode=gi_c",
+          color: "#25D366"
+        }
+      ]
+    },
+    {
+      title: "Connect with Me",
+      links: [
+        {
           title: "WhatsApp Channel",
           subtitle: "Join for exclusive updates",
           icon: "fab fa-whatsapp",
@@ -80,7 +92,7 @@ module.exports = {
           title: "My Portfolio",
           subtitle: "Check out my work & projects",
           icon: "fas fa-briefcase",
-          url: "https://arifzyn.site",
+          url: "https://arifzyn.zone.id",
           color: "#8b5cf6"
         }
       ]
