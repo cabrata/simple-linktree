@@ -1,0 +1,234 @@
+/* Particles Canvas */
+.particles-canvas {
+  opacity: 0.6;
+  transition: opacity var(--transition-base);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particles-canvas {
+    display: none;
+  }
+}
+
+/* Skeleton Loading */
+.skeleton-wrapper {
+  width: 100%;
+  max-width: 720px;
+  animation: fadeIn 0.3s ease;
+  transition: opacity 0.3s ease;
+}
+
+.skeleton-profile {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.skeleton-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: var(--radius-full);
+  background: var(--bg-card);
+  margin: 0 auto var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-name {
+  width: 200px;
+  height: 32px;
+  background: var(--bg-card);
+  border-radius: var(--radius-md);
+  margin: 0 auto var(--spacing-sm);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-bio {
+  width: 400px;
+  height: 16px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  margin: 0 auto var(--spacing-xs);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-bio.short {
+  width: 300px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.skeleton-social {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-xl);
+}
+
+.skeleton-social-icon {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-counter {
+  height: 90px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-section {
+  margin-bottom: var(--spacing-xl);
+}
+
+.skeleton-section-title {
+  width: 150px;
+  height: 20px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm);
+  margin: 0 auto var(--spacing-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-link {
+  height: 80px;
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.skeleton-spotify {
+  height: 352px;
+  background: var(--bg-card);
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Shimmer Animation for Skeleton */
+.skeleton-avatar::before,
+.skeleton-name::before,
+.skeleton-bio::before,
+.skeleton-social-icon::before,
+.skeleton-counter::before,
+.skeleton-section-title::before,
+.skeleton-link::before,
+.skeleton-spotify::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  animation: shimmer 2s infinite;
+}
+
+@media (prefers-color-scheme: dark) {
+  .skeleton-avatar::before,
+  .skeleton-name::before,
+  .skeleton-bio::before,
+  .skeleton-social-icon::before,
+  .skeleton-counter::before,
+  .skeleton-section-title::before,
+  .skeleton-link::before,
+  .skeleton-spotify::before {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      transparent 100%
+    );
+  }
+}
+
+[data-theme="dark"] .skeleton-avatar::before,
+[data-theme="dark"] .skeleton-name::before,
+[data-theme="dark"] .skeleton-bio::before,
+[data-theme="dark"] .skeleton-social-icon::before,
+[data-theme="dark"] .skeleton-counter::before,
+[data-theme="dark"] .skeleton-section-title::before,
+[data-theme="dark"] .skeleton-link::before,
+[data-theme="dark"] .skeleton-spotify::before {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Responsive Skeleton */
+@media (max-width: 640px) {
+  .skeleton-avatar {
+    width: 100px;
+    height: 100px;
+  }
+
+  .skeleton-name {
+    width: 150px;
+    height: 28px;
+  }
+
+  .skeleton-bio {
+    width: 300px;
+  }
+
+  .skeleton-bio.short {
+    width: 200px;
+  }
+
+  .skeleton-social-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .skeleton-link {
+    height: 70px;
+  }
+}
+
+/* Loading State Pulse (alternative to shimmer) */
+@keyframes skeletonPulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-avatar::before,
+  .skeleton-name::before,
+  .skeleton-bio::before,
+  .skeleton-social-icon::before,
+  .skeleton-counter::before,
+  .skeleton-section-title::before,
+  .skeleton-link::before,
+  .skeleton-spotify::before {
+    animation: skeletonPulse 2s infinite;
+  }
+}

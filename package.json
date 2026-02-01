@@ -1,30 +1,33 @@
 {
-  "name": "simple-linktree",
+  "name": "linktree",
   "version": "1.0.0",
-  "description": "",
+  "private": true,
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "webpack serve --mode development --open",
+    "build": "webpack --mode production --stats-error-details",
+    "watch": "webpack --watch --mode development"
+  },
   "keywords": [
     "linktree",
-    "simple",
-    "linktree"
+    "bio",
+    "links",
+    "social",
+    "portfolio"
   ],
-  "homepage": "https://github.com/cabrata/simple-linktree#readme",
-  "bugs": {
-    "url": "https://github.com/cabrata/simple-linktree/issues"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/cabrata/simple-linktree.git"
-  },
-  "license": "ISC",
-  "author": "cabrata",
-  "type": "commonjs",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "dependencies": {
-    "ejs": "^3.1.10",
-    "express": "^5.1.0"
-  },
-  "devDependencies": {}
+  "author": "Arifzyn",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "css-loader": "^6.8.1",
+    "css-minimizer-webpack-plugin": "^5.0.1",
+    "html-webpack-plugin": "^5.5.3",
+    "mini-css-extract-plugin": "^2.7.6",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1",
+    "webpack-obfuscator": "^3.6.0"
+  }
 }

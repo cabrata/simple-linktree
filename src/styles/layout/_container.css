@@ -1,0 +1,48 @@
+.bg-pattern {
+  position: fixed;
+  inset: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, var(--glow) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, var(--glow) 0%, transparent 50%);
+  opacity: 0.3;
+  z-index: 0;
+  pointer-events: none;
+  animation: bgFloat 20s ease-in-out infinite;
+}
+
+@keyframes bgFloat {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  33% {
+    transform: translate(30px, -30px);
+  }
+  66% {
+    transform: translate(-30px, 30px);
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  position: relative;
+  z-index: 1;
+  animation: containerFadeIn 0.8s ease;
+}
+
+@keyframes containerFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    max-width: 100%;
+  }
+}

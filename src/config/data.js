@@ -1,70 +1,78 @@
 module.exports = {
-  // Profile Information
   profile: {
-    name: "Caliph",
-    username: "caliph",
-    bio: "You can’t sit around envying other people’s worlds. You have to go out and change your own.",
-    avatar: "https://github.com/cabrata.png",
+    name: "Arifzyn",
+    username: "arzyn",
+    bio: "You can't sit around envying other people's worlds. You have to go out and change your own.",
+    avatar: "https://github.com/Arifzyn19.png",
     verified: true
   },
 
-  // Social Media Links
   socialMedia: [
     {
       name: "Instagram",
       icon: "fab fa-instagram",
-      url: "https://instagram.com/caliph.dev",
+      url: "https://instagram.com/arifzxa19",
       color: "#E4405F"
     },
     {
       name: "Twitter",
       icon: "fab fa-twitter",
-      url: "https://twitter.com/caliphdev",
+      url: "https://twitter.com/ArifzynXD",
       color: "#1DA1F2"
     },
     {
       name: "GitHub",
       icon: "fab fa-github",
-      url: "https://github.com/cabrata",
+      url: "https://github.com/Arifzyn19",
       color: "#333",
       colorDark: "#fff"
     },
     {
       name: "LinkedIn",
       icon: "fab fa-linkedin",
-      url: "https://linkedin.com/in/caliphatibrata",
+      url: "https://linkedin.com/in/ArifzynXD",
       color: "#0A66C2"
     },
     {
       name: "TikTok",
       icon: "fab fa-tiktok",
-      url: "https://tiktok.com/@caliphdev",
+      url: "https://tiktok.com/@arifzxa1912",
       color: "#000000",
       colorDark: "#fff"
     },
     {
       name: "YouTube",
       icon: "fab fa-youtube",
-      url: "https://youtube.com/@caliphdev",
+      url: "https://youtube.com/@arifzxa19",
       color: "#FF0000"
     },
     {
       name: "Email",
       icon: "fas fa-envelope",
-      url: "mailto:hi@caliphdev.com",
+      url: "mailto:contact@arifzyn.site",
       color: "#EA4335"
     },
     {
-      title: "Telegram",
-      subtitle: "Stay connected with me",
+      name: "Telegram",
       icon: "fab fa-telegram",
-      url: "https://t.me/caliphdev",
+      url: "https://t.me/arifzxa1912",
       color: "#0088cc"
     }
   ],
 
-  // Link Sections
   linkSections: [
+    {
+      title: "Connect with Me",
+      links: [
+        {
+          title: "WhatsApp Group",
+          subtitle: "Join for Group Renegade Immortal Game",
+          icon: "fab fa-whatsapp",
+          url: "https://chat.whatsapp.com/L22XWohPnsBCkmitbTL7Dd?mode=gi_c",
+          color: "#25D366"
+        }
+      ]
+    },
     {
       title: "Connect with Me",
       links: [
@@ -72,7 +80,7 @@ module.exports = {
           title: "WhatsApp Channel",
           subtitle: "Join for exclusive updates",
           icon: "fab fa-whatsapp",
-          url: "https://whatsapp.com/channel/0029VajR9El2f3EO6OKcsa3L",
+          url: "https://whatsapp.com/channel/0029Vaj5VRAFHWpy0YCWGe0U",
           color: "#25D366"
         }
       ]
@@ -84,7 +92,7 @@ module.exports = {
           title: "My Portfolio",
           subtitle: "Check out my work & projects",
           icon: "fas fa-briefcase",
-          url: "https://caliph.dev",
+          url: "https://arifzyn.zone.id",
           color: "#8b5cf6"
         }
       ]
@@ -96,38 +104,28 @@ module.exports = {
           title: "QRIS",
           subtitle: "Support via QRIS",
           icon: "fas fa-heart",
-          url: "https://i.postimg.cc/85p20P2m/1761745657938.png",
+          url: "https://raw.githubusercontent.com/Arifzyn19/Arifzyn19/refs/heads/main/media/QRIS.png",
           color: "#ff6b6b"
         },
-        {
-          title: "PayPal",
-          subtitle: "Support via PayPal",
-          icon: "fab fa-paypal",
-          url: "https://paypal.me/caliphdev",
-          color: "#0070ba"
-        }
       ]
     }
   ],
 
-  // Spotify Configuration
   spotify: {
     enabled: true,
     title: "My Playlist",
-    playlistUrl: "https://open.spotify.com/embed/playlist/10LPwmp3vyWaVe0BSP1p1D?utm_source=generator&theme=0"
+    playlistUrl: "https://open.spotify.com/embed/playlist/3eydlGlNdYVNFIIfLmublg?utm_source=generator&theme=0"
   },
 
-  // Footer
   footer: {
-    text: "© 2025 Caliph Dev. All rights reserved.",
-    link: "https://caliph.id"
+    text: "© 2025 Arifzyn. All rights reserved.",
+    link: "https://arifzyn.my.id"
   },
 
-  // SEO & Meta
   seo: {
-    title: "Caliph - Links",
-    description: "You can’t sit around envying other people’s worlds. You have to go out and change your own.",
-    keywords: "caliph, links, social media, portfolio",
-    ogImage: "https://github.com/cabrata.png"
+    title: "Arifzyn - Links",
+    description: "You can't sit around envying other people's worlds. You have to go out and change your own.",
+    keywords: "arifzyn, links, social media, portfolio",
+    ogImage: "https://github.com/Arifzyn19.png"
   }
 };

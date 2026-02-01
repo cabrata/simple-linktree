@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,13 +12,17 @@
     <meta property="og:image" content="<%= config.seo.ogImage %>" />
     <meta property="og:type" content="website" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <!-- Particles background akan di-inject oleh JavaScript -->
+    
     <div class="container">
         <!-- Profile Header -->
         <div class="profile-header">
-            <img src="<%= config.profile.avatar %>" alt="<%= config.profile.name %>" class="avatar">
+            <div class="avatar-wrapper">
+                <img src="<%= config.profile.avatar %>" alt="<%= config.profile.name %>" class="avatar">
+                <div class="avatar-ring"></div>
+            </div>
             <div class="name-container">
                 <h1 class="name"><%= config.profile.name %></h1>
                 <% if (config.profile.verified) { %>
@@ -35,6 +40,7 @@
                    data-color="<%= social.color %>"
                    <% if (social.colorDark) { %>data-color-dark="<%= social.colorDark %>"<% } %>>
                     <i class="<%= social.icon %>"></i>
+                    <span class="ripple"></span>
                 </a>
                 <% }); %>
             </div>
@@ -51,6 +57,7 @@
             <a href="<%= link.url %>" 
                class="link-card"
                data-color="<%= link.color %>">
+                <div class="link-glow"></div>
                 <i class="<%= link.icon %> link-icon"></i>
                 <div class="link-content">
                     <div class="link-title"><%= link.title %></div>
@@ -65,7 +72,10 @@
         <!-- Spotify Section -->
         <% if (config.spotify.enabled) { %>
         <div class="section-divider">
-            <span class="section-title"><%= config.spotify.title %></span>
+            <span class="section-title">
+                <i class="fab fa-spotify"></i>
+                <%= config.spotify.title %>
+            </span>
         </div>
 
         <div class="spotify-section">
@@ -83,7 +93,5 @@
             <a href="<%= config.footer.link %>"><%= config.footer.text %></a>
         </div>
     </div>
-
-    <script src="/js/script.js"></script>
 </body>
 </html>
