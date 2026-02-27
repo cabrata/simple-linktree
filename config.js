@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   // Profile Information
   profile: {
     name: "Caliph",
