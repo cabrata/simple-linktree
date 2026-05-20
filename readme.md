@@ -1,128 +1,76 @@
-# 🌐 simple-linktree
+# simple-linktree
 
-A minimal **Linktree-style** personal link page built using **Express.js** and **EJS** — perfect for sharing all your links in one place.
-Customize your profile, social media, featured links, and even embed your Spotify playlist with ease.
+A small static Linktree-style page built with Astro. Content stays in
+`config.js`, while Astro renders the page at build time so it can be hosted on
+GitHub Pages without a server.
 
----
+## Features
 
-## 🚀 Features
+- Static Astro build with no client-side framework
+- Inline SVG icons compiled from Font Awesome packages, without the Font Awesome CDN
+- Config-driven profile, social links, grouped links, Spotify embed, and SEO tags
+- Dark-mode styling through CSS media queries
+- GitHub Pages workflow included
 
-* 🧑‍💻 **Customizable Profile** — name, avatar, bio, verified badge
-* 🔗 **Dynamic Link Sections** — group your links by category
-* 🎨 **Social Media Icons** — full Font Awesome integration
-* 🎵 **Spotify Playlist Embed** — show off your vibe
-* 🌙 **Lightweight & Fast** — no database needed
-* ⚙️ **Fully Configurable via `config.js`**
-
----
-
-## 🛠️ Tech Stack
-
-* **Node.js** — backend runtime
-* **Express.js** — lightweight web framework
-* **EJS** — template engine for rendering views
-* **Font Awesome** — icons for socials and links
-
----
-
-## 📦 Installation
-
-Clone this repository and install dependencies:
+## Local Development
 
 ```bash
-git clone https://github.com/cabrata/simple-linktree.git
-cd simple-linktree
 npm install
+npm run dev
 ```
 
----
+Open the local URL printed by Astro.
 
-## ▶️ Usage
-
-Run the project locally:
+## Build
 
 ```bash
-npm start
+npm run build
+npm run preview
 ```
 
-Then open your browser and visit:
+The production output is generated in `dist/`.
 
+## GitHub Pages
+
+This repo is configured for a project page at:
+
+```text
+https://cabrata.github.io/simple-linktree/
 ```
-http://localhost:3000
-```
 
----
-
-## ⚙️ Configuration
-
-All content is managed inside the `config.js` file.
-You can edit profile details, social links, link sections, Spotify embeds, and footer content.
-
-Example structure:
+The Astro config uses:
 
 ```js
-module.exports = {
-  profile: {
-    name: "Caliph",
-    username: "caliph",
-    bio: "You can’t sit around envying other people’s worlds. You have to go out and change your own.",
-    avatar: "https://github.com/cabrata.png",
-    verified: true
-  },
-  socialMedia: [
-    { name: "GitHub", icon: "fab fa-github", url: "https://github.com/cabrata" }
-  ],
-  linkSections: [
-    {
-      title: "Featured Links",
-      links: [
-        { title: "My Portfolio", url: "https://caliph.dev", icon: "fas fa-briefcase" }
-      ]
-    }
-  ]
-};
+site: "https://cabrata.github.io"
+base: "/simple-linktree"
 ```
 
----
+For a different repository or custom domain, update `astro.config.mjs` or set
+`SITE` and `BASE_PATH` environment variables in the workflow.
 
-## 🧩 Folder Structure
+## Configuration
 
-```
+Edit `config.js` to change profile content, links, icons, Spotify, footer, and
+SEO metadata. Existing Font Awesome class names such as `fab fa-github` and
+`fas fa-envelope` are mapped to optimized inline SVG icons by
+`src/components/Icon.astro`.
+
+## Project Structure
+
+```text
 simple-linktree/
-├── public/           # Static assets (CSS, JS, images)
-│   ├── css/
-│   └── js/
-├── views/            # EJS templates
-│   └── index.ejs
-├── config.js         # Configuration file
-├── index.js          # Main Express server
-└── package.json
+├── astro.config.mjs
+├── config.js
+├── public/
+│   └── .nojekyll
+├── src/
+│   ├── components/
+│   │   └── Icon.astro
+│   ├── pages/
+│   │   └── index.astro
+│   └── styles/
+│       └── global.css
+└── .github/
+    └── workflows/
+        └── deploy.yml
 ```
-
----
-
-## 💡 Customization Tips
-
-* Modify `public/css/style.css` for your own theme
-* Add or remove sections in `config.js`
-* Change the favicon and meta tags in `views/index.ejs` for SEO
-
----
-
-## 🐛 Issues
-
-Found a bug or want to request a feature?
-Open an issue [here](https://github.com/cabrata/simple-linktree/issues).
-
----
-
-## 📜 License
-
-This project is licensed under the **ISC License**.
-Feel free to use, modify, and share!
-
----
-
-## ✨ Author
-
-**[cabrata](https://github.com/cabrata)**

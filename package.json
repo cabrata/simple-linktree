@@ -7,7 +7,7 @@
     "simple",
     "linktree"
   ],
-  "homepage": "https://github.com/cabrata/simple-linktree#readme",
+  "homepage": "https://cabrata.github.io/simple-linktree/",
   "bugs": {
     "url": "https://github.com/cabrata/simple-linktree/issues"
   },
@@ -18,20 +18,15 @@
   "license": "ISC",
   "author": "cabrata",
   "type": "module",
-  "main": "src/index.js",
   "scripts": {
-    "build": "webpack --mode production",
-    "start": "webpack serve --mode development --open"
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
   },
   "devDependencies": {
-    "copy-webpack-plugin": "^13.0.1",
-    "css-loader": "^7.1.4",
-    "ejs-compiled-loader": "^3.1.0",
-    "html-webpack-plugin": "^5.6.6",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.105.3",
-    "webpack-cli": "^6.0.1",
-    "webpack-dev-server": "^5.2.3",
-    "workbox-webpack-plugin": "^7.4.0"
+    "@fortawesome/free-brands-svg-icons": "^7.2.0",
+    "@fortawesome/free-solid-svg-icons": "^7.2.0",
+    "astro": "^6.3.5"
   }
 }

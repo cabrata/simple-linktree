@@ -1,0 +1,150 @@
+---
+import config from '../../config.js';
+import Icon from '../components/Icon.astro';
+import '../styles/global.css';
+
+const { profile, socialMedia, linkSections, spotify, footer, seo } = config;
+const title = seo?.title ?? `${profile.name} - Links`;
+const description = seo?.description ?? profile.bio;
+const keywords = seo?.keywords;
+const ogImage = seo?.ogImage ?? profile.avatar;
+const currentYear = new Date().getFullYear();
+
+const externalAttrs = (url) => {
+  if (url.startsWith('mailto:') || url.startsWith('#')) {
+    return {};
+  }
+
+  return {
+    target: '_blank',
+    rel: 'noopener noreferrer',
+  };
+};
+
+const getLabel = (item) => item.name ?? item.title;
+const getDelay = (base, index, step) => `${base + index * step}ms`;
+const slugify = (value) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0f0f14" media="(prefers-color-scheme: dark)" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+  </head>
+  <body>
+    <main class="container" aria-label={`${profile.name} links`}>
+      <header class="profile-header">
+        <img
+          src={profile.avatar}
+          alt={profile.name}
+          class="avatar"
+          width="96"
+          height="96"
+          decoding="async"
+          fetchpriority="high"
+        />
+
+        <div class="name-container">
+          <h1 class="name">{profile.name}</h1>
+          {
+            profile.verified && (
+              <Icon name="fas fa-check-circle" class="verified" />
+            )
+          }
+        </div>
+
+        <p class="username">@{profile.username}</p>
+        <p class="bio">{profile.bio}</p>
+
+        <nav class="social-icons" aria-label="Social media">
+          {
+            socialMedia.map((social, index) => (
+              <a
+                href={social.url}
+                class="social-icon"
+                title={getLabel(social)}
+                aria-label={getLabel(social)}
+                style={`--icon-color: ${social.color}; --icon-color-dark: ${social.colorDark ?? social.color}; --item-delay: ${getDelay(240, index, 45)};`}
+                {...externalAttrs(social.url)}
+              >
+                <Icon name={social.icon} />
+              </a>
+            ))
+          }
+        </nav>
+      </header>
+
+      {
+        linkSections.map((section) => (
+          <section class="link-section" aria-labelledby={`section-${slugify(section.title)}`}>
+            <div class="section-divider">
+              <h2 class="section-title" id={`section-${slugify(section.title)}`}>
+                {section.title}
+              </h2>
+            </div>
+
+            <div class="links-grid">
+              {section.links.map((link, index) => (
+                <a
+                  href={link.url}
+                  class="link-card"
+                  style={`--link-color: ${link.color}; --item-delay: ${getDelay(300, index, 60)};`}
+                  {...externalAttrs(link.url)}
+                >
+                  <Icon name={link.icon} class="link-icon" />
+                  <span class="link-content">
+                    <span class="link-title">{link.title}</span>
+                    <span class="link-subtitle">{link.subtitle}</span>
+                  </span>
+                  <Icon name="fas fa-arrow-right" class="link-arrow" />
+                </a>
+              ))}
+            </div>
+          </section>
+        ))
+      }
+
+      {
+        spotify.enabled && (
+          <section class="spotify-wrapper" aria-labelledby="spotify-title">
+            <div class="section-divider">
+              <h2 class="section-title" id="spotify-title">
+                {spotify.title}
+              </h2>
+            </div>
+
+            <div class="spotify-section">
+              <iframe
+                class="spotify-embed"
+                title={spotify.title}
+                src={spotify.playlistUrl}
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy"
+              />
+            </div>
+          </section>
+        )
+      }
+
+      <footer class="footer">
+        <a href={footer.link} {...externalAttrs(footer.link)}>
+          {footer.text.replace('2025', String(currentYear))}
+        </a>
+      </footer>
+    </main>
+  </body>
+</html>

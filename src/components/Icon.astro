@@ -1,0 +1,59 @@
+---
+import {
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faPaypal,
+  faTelegram,
+  faTiktok,
+  faTwitter,
+  faWhatsapp,
+  faYoutube,
+} from '@fortawesome/free-brands-svg-icons';
+import {
+  faArrowRight,
+  faBriefcase,
+  faCheckCircle,
+  faEnvelope,
+  faHeart,
+} from '@fortawesome/free-solid-svg-icons';
+
+const icons = {
+  'fab fa-github': faGithub,
+  'fab fa-instagram': faInstagram,
+  'fab fa-linkedin': faLinkedin,
+  'fab fa-paypal': faPaypal,
+  'fab fa-telegram': faTelegram,
+  'fab fa-tiktok': faTiktok,
+  'fab fa-twitter': faTwitter,
+  'fab fa-whatsapp': faWhatsapp,
+  'fab fa-youtube': faYoutube,
+  'fas fa-arrow-right': faArrowRight,
+  'fas fa-briefcase': faBriefcase,
+  'fas fa-check-circle': faCheckCircle,
+  'fas fa-envelope': faEnvelope,
+  'fas fa-heart': faHeart,
+};
+
+const { name, title, class: className = '' } = Astro.props;
+const icon = icons[name];
+const [width, height, , , pathData] = icon?.icon ?? [];
+const paths = Array.isArray(pathData) ? pathData : [pathData];
+---
+
+{
+  icon ? (
+    <svg
+      class:list={[className]}
+      viewBox={`0 0 ${width} ${height}`}
+      aria-hidden={title ? undefined : 'true'}
+      role={title ? 'img' : undefined}
+      focusable="false"
+    >
+      {title && <title>{title}</title>}
+      {paths.map((path) => path && <path fill="currentColor" d={path} />)}
+    </svg>
+  ) : (
+    <span class:list={[className]} aria-hidden="true" />
+  )
+}
