@@ -4,7 +4,7 @@ export default {
     name: "Caliph",
     username: "caliph",
     bio: "You can’t sit around envying other people’s worlds. You have to go out and change your own.",
-    avatar: "https://github.com/cabrata.png",
+    avatar: "https://avatars.githubusercontent.com/cabrata?v=4&s=95",
     verified: true
   },
 
